@@ -16,6 +16,16 @@
   </div>
 
   <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Article::VALID_STATUSES, selected: article.status || 'public' %>
+    <% article.errors.full_messages_for(:status).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <br>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
